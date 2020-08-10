@@ -18,7 +18,7 @@ namespace reactCrud
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)//to register services to the IoC container.
         {
 
             services.AddControllersWithViews();
@@ -31,6 +31,8 @@ namespace reactCrud
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // the middleware components to define a request pipeline, which will be executed on every request.
+        // At run time, the ConfigureServices method is called before the Configure method. This is so that you can register your custom service with the IoC container which you may use in the Configure method.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

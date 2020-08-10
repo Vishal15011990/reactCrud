@@ -1,22 +1,27 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router';
-import { Layout } from './components/Layout';
-import { Home } from './components/Home';
-import { FetchData } from './components/FetchData';
-import { Counter } from './components/Counter';
+import  Demo  from './components/Demo';
+import { BrowserRouter ,Route,Switch } from 'react-router-dom';
+import { Nav, Button } from 'react-bootstrap';
+import {Edit} from './components/Edit'
 
-import './custom.css'
 
 export default class App extends Component {
   static displayName = App.name;
 
-  render () {
+    render() {
     return (
-      <Layout>
-        <Route exact path='/' component={Home} />
-        <Route path='/counter' component={Counter} />
-        <Route path='/fetch-data' component={FetchData} />
-      </Layout>
+        <>
+            <BrowserRouter>
+                <div className="container">
+                    <Switch>
+                        <Route path='/' component={Demo} exact/>
+                    </Switch>
+                </div>
+            </BrowserRouter>
+            <Button variant="warning">Click ME only</Button>
+            <button variant="primary">Click Me Hard</button>
+            <Demo/>
+        </>
     );
   }
 }
